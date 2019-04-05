@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseHandler.cs" />
     <Compile Include="IHandler.cs" />
     <Compile Include="IRequest.cs" />
     <Compile Include="Program.cs" />
