@@ -4,11 +4,26 @@
     {
         private IHandler _nextHandler { get; set; }
 
+        protected BaseHandler(IHandler handler)
+        {
+            SetNext(handler);
+        }
+
+        protected BaseHandler()
+        {
+            SetNext(null);
+        }
+
         public void SetNext(IHandler handler)
         {
             _nextHandler = handler;
         }
 
-        public abstract void Handle(IRequest request);
+        public virtual void Handle(IRequest request)
+        {
+            _nextHandler?.Handle(request);
+        }
+
+        protected abstract bool CanHandle(IRequest request);
     }
 }
