@@ -11,11 +11,12 @@ namespace ConsoleApp2
         static void Main(string[] args)
         {
             var h1 = new OneHundredAnalyzer();
+            var h50 = new FiftyAnalyzer(h1);
             var request = new Request()
             {
-                Amount = 501,
+                Amount = 550,
             };
-            h1.Handle(request);
+            h50.Handle(request);
             foreach (var requestBill in request.Bills)
             {
                 Console.WriteLine($"{requestBill.Amount}");

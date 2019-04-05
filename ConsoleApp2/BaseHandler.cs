@@ -19,11 +19,21 @@
             _nextHandler = handler;
         }
 
-        public virtual void Handle(IRequest request)
+        // Template Method
+        public void Handle(IRequest request)
         {
+            // If can handle
+            while (CanHandle(request))
+            {
+                // Handle
+                SpecificHandle(request);
+            }
+            // Cannot handle further - pass on request
             _nextHandler?.Handle(request);
         }
 
+        // Implemented in concrete handlers
+        protected abstract void SpecificHandle(IRequest request);
         protected abstract bool CanHandle(IRequest request);
     }
 }

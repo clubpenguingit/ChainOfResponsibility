@@ -12,17 +12,10 @@
             
         }
 
-        public sealed override void Handle(IRequest request)  
+        protected override void SpecificHandle(IRequest request)
         {
-            // If can handle
-            while(CanHandle(request))
-            {
-                // Handle
-                request.Amount -= 100;
-                request.Bills.Add(new Bill("100"));
-            }
-            // Cannot handle further - pass on request
-            base.Handle(request);
+            request.Amount -= 100;
+            request.Bills.Add(new Bill("100 kr."));
         }
 
         protected override bool CanHandle(IRequest request)
