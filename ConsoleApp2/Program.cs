@@ -19,11 +19,23 @@ namespace ConsoleApp2
             
             var request = new Request()
             {
-                Amount = 90956,
+                Amount = 2099,
             };
             h500.Handle(request);
 
-            
+            // If calling handle on the wrong handler (not the start)
+
+            var endHandler2 = new EndHandler();
+            var h502 = new FiveHundredAnalyzer(endHandler2);
+
+            var request2 = new Request()
+            {
+                Amount = 90956,
+            };
+
+            endHandler2.Handle(request2);
+
+
         }
     }
 }
