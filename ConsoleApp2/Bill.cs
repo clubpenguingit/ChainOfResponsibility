@@ -4,9 +4,9 @@
     {
         public string Amount { get; set; }
 
-        public Bill(string Amount)
+        public Bill(string amount)
         {
-            this.Amount = Amount;
+            this.Amount = amount;
         }
     }
 }

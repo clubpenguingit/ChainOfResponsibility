@@ -5,11 +5,11 @@ namespace ConsoleApp2
     public class Request : IRequest
     {
         public double Amount { get; set; }
-        public List<Bill> Bills { get; set; }
+        public List<IBill> Bills { get; set; }
 
         public Request()
         {
-            Bills = new List<Bill>();
+            Bills = new List<IBill>();
         }
     }
 }

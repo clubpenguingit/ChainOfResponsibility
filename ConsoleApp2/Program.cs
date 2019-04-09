@@ -10,20 +10,20 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            var h1 = new OneHundredAnalyzer();
-            var h50 = new FiftyAnalyzer(h1);
+            // Initializing the chain of responsibility from end to start. 
+            var endHandler = new EndHandler();
+            var h50 = new FiftyAnalyzer(endHandler);
+            var h100 = new OneHundredAnalyzer(h50);
+            var h200 = new TwoHundredAnalyzer(h100);
+            var h500 = new FiveHundredAnalyzer(h200);
+            
             var request = new Request()
             {
-                Amount = 550,
+                Amount = 90956,
             };
-            h50.Handle(request);
-            foreach (var requestBill in request.Bills)
-            {
-                Console.WriteLine($"{requestBill.Amount}");
-                
-            }
+            h500.Handle(request);
 
-            Console.WriteLine($"Rest is {request.Amount}");
+            
         }
     }
 }

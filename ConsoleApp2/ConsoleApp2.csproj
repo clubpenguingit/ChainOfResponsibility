@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BaseHandler.cs" />
     <Compile Include="Bill.cs" />
+    <Compile Include="EndHandler.cs" />
     <Compile Include="FiftyAnalyzer.cs" />
     <Compile Include="FiveHundredAnalyzer.cs" />
     <Compile Include="IBill.cs" />
